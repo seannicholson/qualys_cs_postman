@@ -1,0 +1,941 @@
+{
+	"info": {
+		"_postman_id": "6638e2b3-c242-4916-8eb0-122c914ed787",
+		"name": "Container Security",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Auth Token Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"authTokenValue\", pm.response.text());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "permissions",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{gateway_base_url}}/auth",
+					"protocol": "https",
+					"host": [
+						"{{gateway_base_url}}"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "Your token will appear in the Body section of the response, which should be 201 Created"
+			},
+			"response": []
+		},
+		{
+			"name": "Generate Authentication Token Copy Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"authTokenValue\", pm.response.text());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "QualysPostman",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{base_url}}/auth",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "You must authenticate to the Qualys Cloud Platform using Qualys account credentials (username and password) and get the JSON Web Token (JWT) before you can start using the Global IT Asset Inventory APIs. This API operation is used to generate the token within Postman that will update the global authTokenValue variable. All subsequent queries in this collection will use that variable for authentication.\n\n\n**Example Curl Request**:\ncurl -X POST https://gateway.qg1.apps.qualys.com/auth -d\n\"username=value1&password=passwordValue&token=true\" -H\n\"ContentType: application/x-www-form-urlencoded\"\n\nNote: gateway.qg1.apps.qualys.com is the base URL to the Qualys API server where your account is located. Please reference [this tutorial](https://discussions.qualys.com/message/49007-re-api-gateway-application-api-docs-swagger?commentID=49007#comment-49007) to find which URL to use."
+			},
+			"response": [
+				{
+					"name": "Generate Authentication Token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "QualysPostman",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{apigatewayhost}}/auth",
+							"protocol": "https",
+							"host": [
+								"{{apigatewayhost}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15768000 ; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1560"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 15 Nov 2019 22:05:57 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJxdWF5c19xZCIsImxvZ2luUmVzcG9uc2UiOiJTVUNDRVNTRlVMIiwic3VjY2Vzc2Z1bEF1dGhlbnRpY2F0aW9uSGFuZGxlcnMiOlsiQXV0aEhhbmRsZXIiXSwiaXNzIjoicWFzIiwiaXBBZGRyZXNzIjoiMTAuMC4yMTIuMTk1IiwicG9ydGFsVXNlcklkIjozMzc1OTEsInVzZXJ0eXBlIjoiZm8iLCJxd2ViVXNlcklkIjozMDQxLCJjcmVkZW50aWFsVHlwZSI6IlFVc2VybmFtZVBhc3N3b3JkQ3JlZGVudGlhbCIsImF1ZCI6InFhcyIsIm1vZHVsZXNBbGxvd2VkIjpbIkFETUlOIi*******************************tZWI5Ny04MzgwLWUzNWM3M2I1OTcyYSIsInN1YnNjcmlwdGlvblV1aWQiOiIzZjVjNzUyMS0zNmIxLTViMmYtODMwYi02ODM4OTNiMTRhNGIiLCJpc1RndEV4cGlyZWQiOiJ0cnVlIiwic3Vic2NyaXB0aW9uSWQiOjMwNDEsImV4cCI6MTU3Mzg2OTk1NywiaWF0IjoxNTczODU1NTU3LCJqdGkiOiJUR1QtMjAtcXVOeW9jSnF5c3VCTmIzMFZqclVmcldGMno5N1I2LUp0bWVVMEZlMlhsY2pjY05KTUpYckNiQ0ZFYW5wNnVScVFPMC1xYXMwMiJ9.yTi7EWlma9fo23ZoTpuFQhSyuN33prdXSQKOYW-L6ISrl9PqCksQnw5dEiObpISZ3zSzKCDfW64_OuIXNvqgzQ"
+				}
+			]
+		},
+		{
+			"name": "CS - Get Containers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/containers/?filter=vulnerabilities.threatIntel.zeroDay:true",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"containers",
+						""
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "vulnerabilities.threatIntel.zeroDay:true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Get Containers List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/containers/?filter=vulnerabilities.threatIntel.zeroDay:true",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"containers",
+						""
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "vulnerabilities.threatIntel.zeroDay:true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Get Container w/ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/containers/de160ac506c6",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"containers",
+						"de160ac506c6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Get Images",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/images/?filter=vulnerabilities.threatIntel.zeroDay:true",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"images",
+						""
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "vulnerabilities.threatIntel.zeroDay:true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Get Images Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/images/?filter=vulnerabilities.threatIntel.zeroDay:true",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"images",
+						""
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "vulnerabilities.threatIntel.zeroDay:true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Get Registries",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/registry/cae260e4-6184-437e-b61c-2a1ed1d3a653",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"registry",
+						"cae260e4-6184-437e-b61c-2a1ed1d3a653"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Create Registry",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/registry/cae260e4-6184-437e-b61c-2a1ed1d3a653",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"registry",
+						"cae260e4-6184-437e-b61c-2a1ed1d3a653"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Scan Registry",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authTokenValue}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"name\": \"registryBaseline\",\n \"onDemand\": true,\n \"filters\": [\n {\n \"repoTags\": [{\n \"repo\": \".*\",\n \"tag\": \".*\"\n }],\n \"days\": 0\n }\n ],\n \"schedule\": \"Null\"\n}"
+				},
+				"url": {
+					"raw": "https://{{gateway_base_url}}/csapi/v1.2/registry/955a3678-55e0-4a8f-ad20-0caadd453e27/schedule",
+					"protocol": "https",
+					"host": [
+						"{{gateway_base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.2",
+						"registry",
+						"955a3678-55e0-4a8f-ad20-0caadd453e27",
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Instrument an ImageId",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\timageId: \"7b4e6969-d808-3055-810c-beb8debce512\",\n\tpullRegistryUuid: \"91d619c0-eeb9-4790-aadc-ed7058b41223\",\n\tpullRepository: \"snicholsonqualys/demo-builds\",\n\tpullTag: \"27\",\n\tpushRegistryUuid: \"91d619c0-eeb9-4790-aadc-ed7058b41223\",\n\tpushRepository: \"snicholsonqualys/demo-builds\",\n\tpushTag: \"27-layered\"\n}\n"
+				},
+				"url": {
+					"raw": "https://{{base_url}}/cs/rest/1.0/images/edcff1da4997/instrument",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"cs",
+						"rest",
+						"1.0",
+						"images",
+						"edcff1da4997",
+						"instrument"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Get Image w/ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{base_url}}/csapi/v1.1/images/?filter=vulnerabilities.threatIntel.zeroDay:true",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"csapi",
+						"v1.1",
+						"images",
+						""
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "vulnerabilities.threatIntel.zeroDay:true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Get AWS ECR Connector",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authTokenValue}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}/v1.1/registry/aws/connectors",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1.1",
+						"registry",
+						"aws",
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auth Token Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"authTokenValue\", pm.response.text());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "permissions",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{gateway_base_url}}/auth",
+					"protocol": "https",
+					"host": [
+						"{{gateway_base_url}}"
+					],
+					"path": [
+						"auth"
+					]
+				},
+				"description": "Your token will appear in the Body section of the response, which should be 201 Created"
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Create GCR Connector Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authTokenValue}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}/v1.1/registry/aws/connectors",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1.1",
+						"registry",
+						"aws",
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CS - Create GCR Connector Copy Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authTokenValue}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}/v1.1/registry/aws/connectors",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"v1.1",
+						"registry",
+						"aws",
+						"connectors"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
