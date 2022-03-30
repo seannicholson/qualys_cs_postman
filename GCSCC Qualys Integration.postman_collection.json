@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "7103688f-2e29-4191-9cb9-4c44176fe931",
+		"name": "GCSCC Qualys Integration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Integration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}/qps/rest/2.0/get/integration/googlecscc",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"qps",
+						"rest",
+						"2.0",
+						"get",
+						"integration",
+						"googlecscc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Integration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}/qps/rest/2.0/update/integration/googlecscc/<id> ",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"qps",
+						"rest",
+						"2.0",
+						"update",
+						"integration",
+						"googlecscc",
+						"<id> "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Integration",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}/qps/rest/2.0/delete/integration/googlecscc/<id>",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"qps",
+						"rest",
+						"2.0",
+						"delete",
+						"integration",
+						"googlecscc",
+						"<id>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Integration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}//qps/rest/2.0/add/integration/googlecscc/",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"",
+						"qps",
+						"rest",
+						"2.0",
+						"add",
+						"integration",
+						"googlecscc",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Integration Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://{{base_url}}//qps/rest/2.0/add/integration/googlecscc/",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"",
+						"qps",
+						"rest",
+						"2.0",
+						"add",
+						"integration",
+						"googlecscc",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{username}}",
+				"type": "string"
+			}
+		]
+	}
+}
