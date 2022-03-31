@@ -1,0 +1,638 @@
+{
+	"info": {
+		"_postman_id": "cf7fa994-e713-45ab-9d65-7a072d8f42b0",
+		"name": "CICD Pipeline Integration API Queries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "IP List Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/asset/ip/?action=list",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"asset",
+						"ip",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "list"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add IP to Vulnerability Management",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/xml",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "Postman",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/asset/ip/?action=add&enable_vm=1&ips=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"asset",
+						"ip",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "add"
+						},
+						{
+							"key": "enable_vm",
+							"value": "1"
+						},
+						{
+							"key": "ips",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add IP to Policy Compliance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/asset/ip/?action=add&enable_pc=1&ips=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"asset",
+						"ip",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "add"
+						},
+						{
+							"key": "enable_pc",
+							"value": "1"
+						},
+						{
+							"key": "ips",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add IP to VM and PC",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/asset/ip/?action=add&enable_pc=1&enable_vm=1&ips=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"asset",
+						"ip",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "add"
+						},
+						{
+							"key": "enable_pc",
+							"value": "1"
+						},
+						{
+							"key": "enable_vm",
+							"value": "1"
+						},
+						{
+							"key": "ips",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add IP to Auth Record - Linux",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/auth/unix/?action=update&ids=&add_ips=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"auth",
+						"unix",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "update"
+						},
+						{
+							"key": "ids",
+							"value": ""
+						},
+						{
+							"key": "add_ips",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add IP to Auth Record - Windows",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/auth/windows/?action=update&ids=&add_ips=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"auth",
+						"windows",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "update"
+						},
+						{
+							"key": "ids",
+							"value": ""
+						},
+						{
+							"key": "add_ips",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Run VM Scan by IP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/scan/?action=launch& iscanner_id=&scan_title=&option_id=&ip=&priority=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"scan",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "launch"
+						},
+						{
+							"key": " iscanner_id",
+							"value": ""
+						},
+						{
+							"key": "scan_title",
+							"value": ""
+						},
+						{
+							"key": "option_id",
+							"value": ""
+						},
+						{
+							"key": "ip",
+							"value": ""
+						},
+						{
+							"key": "priority",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Run PC Scan by IP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/scan/compliance/?action=launch& iscanner_id=&scan_title=&option_id=&ip=&priority=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"scan",
+						"compliance",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "launch"
+						},
+						{
+							"key": " iscanner_id",
+							"value": ""
+						},
+						{
+							"key": "scan_title",
+							"value": ""
+						},
+						{
+							"key": "option_id",
+							"value": ""
+						},
+						{
+							"key": "ip",
+							"value": ""
+						},
+						{
+							"key": "priority",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Scan Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "scan_ref",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/scan/?action=list&show_status=1&scan_ref=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"scan",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "list"
+						},
+						{
+							"key": "show_status",
+							"value": "1"
+						},
+						{
+							"key": "scan_ref",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch VM Scan Results",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "scan_ref",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/scan/?action=fetch&scan_ref=&mode=extended&output_format=json_extended",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"scan",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "fetch"
+						},
+						{
+							"key": "scan_ref",
+							"value": ""
+						},
+						{
+							"key": "mode",
+							"value": "extended"
+						},
+						{
+							"key": "output_format",
+							"value": "json_extended"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query the Qualys Knowledge Base",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "text/xml"
+					},
+					{
+						"key": "X-Requested-With",
+						"type": "text",
+						"value": "Postman"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{base_url}}/api/2.0/fo/knowledge_base/vuln/?action=list&details=Basic&ids=",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"2.0",
+						"fo",
+						"knowledge_base",
+						"vuln",
+						""
+					],
+					"query": [
+						{
+							"key": "action",
+							"value": "list"
+						},
+						{
+							"key": "details",
+							"value": "Basic"
+						},
+						{
+							"key": "ids",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
